@@ -1,0 +1,18 @@
+{
+    "name": "tree-sitter-6809",
+    "version": "0.0.0",
+    "description": "A tree-sitter grammar for 6809 assembly",
+    "main": "index.js",
+    "author": "Georg Ziegler",
+    "license": "MIT",
+    "repository": "https://github.com/georgjz/tree-sitter-6809.git",
+    "bugs": {
+        "url": "https://github.com/georgjz/tree-sitter-6809.git/issues"
+    },
+    "devDependencies": {
+        "tree-sitter-cli": "^0.13.8"
+    },
+    "scripts": {
+        "build": "node_modules/.bin/tree-sitter generate && node-gyp build"
+    }
+}
