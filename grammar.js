@@ -3,6 +3,7 @@ module.exports = grammar({
 
     rules: {
         source_file: $ => repeat($._line),
+        
 
         // a line has up to three fields:
         // _label: a label
