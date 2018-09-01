@@ -2,10 +2,23 @@
 Line format test
 ====
 
-label: opcode ;comment after line
+        opcode
+        pseudo_opcode
+
+label:  opcode        ; comment after line
+label:  pseudo_opcode
+
+; just a standard label
+label:
+
 
 ---
 
 (source_file
+    (opcode)
+    (pseudo_opcode)
     (label) (opcode) (semicolon_comment)
+    (label) (pseudo_opcode)
+    (semicolon_comment)
+    (label)
 )
