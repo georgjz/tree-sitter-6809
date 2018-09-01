@@ -1,0 +1,42 @@
+====
+Number format test
+====
+
+        abx 100
+        abx -100
+        abx $999
+
+        abx $12ab
+        abx aff3H
+        abx 0xfd34
+        abx 0Xadf7
+
+        abx @007
+        abx 123q
+        abx 234Q
+        abx 345o
+        abx 457O
+
+        abx %1001001
+        abx 1001010b
+        abx 1001001B
+
+---
+
+(source_file
+    (opcode (memnonic) (numeric_operand))
+    (opcode (memnonic) (numeric_operand))
+    (opcode (memnonic) (numeric_operand))
+    (opcode (memnonic) (numeric_operand))
+    (opcode (memnonic) (numeric_operand))
+    (opcode (memnonic) (numeric_operand))
+    (opcode (memnonic) (numeric_operand))
+    (opcode (memnonic) (numeric_operand))
+    (opcode (memnonic) (numeric_operand))
+    (opcode (memnonic) (numeric_operand))
+    (opcode (memnonic) (numeric_operand))
+    (opcode (memnonic) (numeric_operand))
+    (opcode (memnonic) (numeric_operand))
+    (opcode (memnonic) (numeric_operand))
+    (opcode (memnonic) (numeric_operand))
+)

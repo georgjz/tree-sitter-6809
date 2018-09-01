@@ -1,0 +1,25 @@
+====
+Line format test
+====
+
+        abx
+        pseudo_opcode
+
+label:  abx           ; comment after line
+label:  pseudo_opcode
+
+; just a standard label
+label:
+        abx           ; opcode + comment
+        
+---
+
+(source_file
+    (opcode (memnonic))
+    (pseudo_opcode)
+    (label) (opcode (memnonic)) (semicolon_comment)
+    (label) (pseudo_opcode)
+    (semicolon_comment)
+    (label)
+    (opcode (memnonic)) (semicolon_comment)
+)
