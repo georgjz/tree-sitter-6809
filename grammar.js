@@ -44,10 +44,50 @@ module.exports = grammar({
         ),
 
         // TODO: preliminar
-        opcode: $ => 'opcode',
-        // opcode: $ => seq(
-            // $.memnonic
-        // ),
+        // opcode: $ => 'opcode',
+        opcode: $ => seq(
+            $.memnonic,
+            optional($._operand_field)
+        ),
+
+        _operand_field: $ => choice(
+                $.numeric_operand,
+                $.register
+            // optional(
+                // ',',
+                // $.register
+            // )
+        ),
+
+        numeric_operand: $ => choice(
+            $._decimal,
+            $._octal,
+            $._hexadecimal,
+            $._binary
+        ),
+
+        // TODO: replace with regex
+        register: $ => choice(
+            'A', 'B', 'X', 'Y', 'U', 'S', 'PC', 'CC', 'DP', 'D'
+        ),
+
+        _decimal: $ => '123', // /\-?[0-9]+/,
+
+        _octal: $ => choice(
+            /\@[0-7]+/,
+            /[0-7]+[qQOo]/
+        ),
+
+        _hexadecimal: $ => choice(
+            /\$[a-fA-F0-9]+/,
+            /0[xX][a-fA-F0-9]+/,
+            /[a-fA-F0-9]+H/
+        ),
+
+        _binary: $ => choice(
+            /\%[01]+/,
+            /[01]+[bB]/
+        ),
 
         // (P): Operand containing immediate, extended,
         //      direct, or indexed addressing
@@ -64,9 +104,11 @@ module.exports = grammar({
 
         // all valid 6809 memnonics
         // TODO: improve code with regex'
+        memnonic: $ => 'abx',
+        // memnonic: $ => /abx/i,
         // memnonic: $ => choice(
-        //     /abx/i,
-        //     /adc[ab]?/i
+            // /abx/i,
+            // /adc[ab]?/i
         // ),
 
         // TODO: preliminar

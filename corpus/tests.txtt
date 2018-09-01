@@ -2,23 +2,27 @@
 Line format test
 ====
 
-        opcode
+        abx
         pseudo_opcode
 
-label:  opcode        ; comment after line
+label:  abx           ; comment after line
 label:  pseudo_opcode
 
 ; just a standard label
 label:
+numers:
 
+        abx 123
 
 ---
 
 (source_file
-    (opcode)
+    (opcode (memnonic))
     (pseudo_opcode)
-    (label) (opcode) (semicolon_comment)
+    (label) (opcode (memnonic)) (semicolon_comment)
     (label) (pseudo_opcode)
     (semicolon_comment)
     (label)
+    (label)
+    (opcode (memnonic) (numeric_operand))
 )

@@ -96,8 +96,155 @@
       ]
     },
     "opcode": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "memnonic"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_operand_field"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_operand_field": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "numeric_operand"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "register"
+        }
+      ]
+    },
+    "numeric_operand": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_decimal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_octal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_hexadecimal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_binary"
+        }
+      ]
+    },
+    "register": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "A"
+        },
+        {
+          "type": "STRING",
+          "value": "B"
+        },
+        {
+          "type": "STRING",
+          "value": "X"
+        },
+        {
+          "type": "STRING",
+          "value": "Y"
+        },
+        {
+          "type": "STRING",
+          "value": "U"
+        },
+        {
+          "type": "STRING",
+          "value": "S"
+        },
+        {
+          "type": "STRING",
+          "value": "PC"
+        },
+        {
+          "type": "STRING",
+          "value": "CC"
+        },
+        {
+          "type": "STRING",
+          "value": "DP"
+        },
+        {
+          "type": "STRING",
+          "value": "D"
+        }
+      ]
+    },
+    "_decimal": {
       "type": "STRING",
-      "value": "opcode"
+      "value": "123"
+    },
+    "_octal": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "\\@[0-7]+"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[0-7]+[qQOo]"
+        }
+      ]
+    },
+    "_hexadecimal": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "\\$[a-fA-F0-9]+"
+        },
+        {
+          "type": "PATTERN",
+          "value": "0[xX][a-fA-F0-9]+"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[a-fA-F0-9]+H"
+        }
+      ]
+    },
+    "_binary": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "\\%[01]+"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[01]+[bB]"
+        }
+      ]
+    },
+    "memnonic": {
+      "type": "STRING",
+      "value": "abx"
     },
     "pseudo_opcode": {
       "type": "STRING",
