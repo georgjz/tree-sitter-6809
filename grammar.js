@@ -44,19 +44,26 @@ module.exports = grammar({
         ),
 
         // TODO: preliminar
-        // opcode: $ => 'opcode',
         opcode: $ => seq(
             $.memnonic,
             optional($._operand_field)
         ),
 
-        _operand_field: $ => choice(
-                $.numeric_operand,
-                $.register
-            // optional(
-                // ',',
-                // $.register
-            // )
+        _operand_field: $ => seq(
+            // first operand
+            optional(
+                choice(
+                    $.numeric_operand,
+                    $.register
+                )
+            ),
+            // second operand
+            optional(
+                seq(
+                    ',',
+                    $.register
+                )
+            )
         ),
 
         numeric_operand: $ => choice(
@@ -68,7 +75,20 @@ module.exports = grammar({
 
         // TODO: replace with regex
         register: $ => choice(
-            'A', 'B', 'X', 'Y', 'U', 'S', 'PC', 'CC', 'DP', 'D'
+            // prefix
+            seq(
+                /(\-\-|\+\+)/,
+                choice(
+                    'A', 'B', 'X', 'Y', 'U', 'S', 'PC', 'CC', 'DP', 'D'
+                )
+            ),
+            // prefix
+            seq(
+                choice(
+                    'A', 'B', 'X', 'Y', 'U', 'S', 'PC', 'CC', 'DP', 'D'
+                ),
+                /(\-\-|\+\+)/
+            )
         ),
 
         _decimal: $ => /\&?\-?[0-9]+/,
