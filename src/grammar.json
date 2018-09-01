@@ -4,9 +4,109 @@
     "source_file": {
       "type": "REPEAT",
       "content": {
-        "type": "PATTERN",
-        "value": "\\w"
+        "type": "SYMBOL",
+        "name": "_line"
       }
+    },
+    "_line": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "label"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_instruction"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_comment"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_line_break"
+        }
+      ]
+    },
+    "_line_break": {
+      "type": "STRING",
+      "value": "\n"
+    },
+    "label": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_identifier"
+        },
+        {
+          "type": "STRING",
+          "value": ":"
+        }
+      ]
+    },
+    "_identifier": {
+      "type": "PATTERN",
+      "value": "[a-zA-Z\\._][a-zA-Z0-9\\._\\$]+"
+    },
+    "_instruction": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "opcode"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "pseudo_opcode"
+        }
+      ]
+    },
+    "opcode": {
+      "type": "STRING",
+      "value": "opcode"
+    },
+    "pseudo_opcode": {
+      "type": "STRING",
+      "value": "pseudo_opcode"
+    },
+    "_comment": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "semicolon_comment"
+        }
+      ]
+    },
+    "semicolon_comment": {
+      "type": "PATTERN",
+      "value": ";.*"
     }
   },
   "extras": [

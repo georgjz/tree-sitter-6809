@@ -1,9 +1,11 @@
 ====
-Simple functions
+Line format test
 ====
 
-test body
+label: opcode ;comment after line
 
 ---
 
-(source_file)
+(source_file
+    (label) (opcode) (semicolon_comment)
+)
