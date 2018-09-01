@@ -196,8 +196,8 @@
       ]
     },
     "_decimal": {
-      "type": "STRING",
-      "value": "123"
+      "type": "PATTERN",
+      "value": "\\&?\\-?[0-9]+"
     },
     "_octal": {
       "type": "CHOICE",

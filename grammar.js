@@ -71,7 +71,7 @@ module.exports = grammar({
             'A', 'B', 'X', 'Y', 'U', 'S', 'PC', 'CC', 'DP', 'D'
         ),
 
-        _decimal: $ => '123', // /\-?[0-9]+/,
+        _decimal: $ => /\&?\-?[0-9]+/,
 
         _octal: $ => choice(
             /\@[0-7]+/,

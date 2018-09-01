@@ -10,10 +10,8 @@ label:  pseudo_opcode
 
 ; just a standard label
 label:
-numers:
-
-        abx 123
-
+        abx           ; opcode + comment
+        
 ---
 
 (source_file
@@ -23,6 +21,5 @@ numers:
     (label) (pseudo_opcode)
     (semicolon_comment)
     (label)
-    (label)
-    (opcode (memnonic) (numeric_operand))
+    (opcode (memnonic)) (semicolon_comment)
 )
