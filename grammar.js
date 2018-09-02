@@ -120,8 +120,11 @@ module.exports = grammar({
         _term: $ => choice(
             seq( '(', $._expression, ')' ),
             $.symbol,
-            $.constant
+            $.constant,
+            $.string
         ),
+
+        string: $ => /\".*\"/,
 
     } // rules
 })

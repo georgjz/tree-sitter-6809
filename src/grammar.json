@@ -466,8 +466,16 @@
         {
           "type": "SYMBOL",
           "name": "constant"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "string"
         }
       ]
+    },
+    "string": {
+      "type": "PATTERN",
+      "value": "\\\".*\\\""
     }
   },
   "extras": [
