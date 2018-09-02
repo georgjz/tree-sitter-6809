@@ -2,16 +2,16 @@
 Expressions test
 ====
 
-4 + 5
-4 - 4 * 6 / 6
-(45 - 8) / (45 / (4 + 5))
-
-
+label:
+label:  abx     ; comment
+        abx     ; comment
+        abx
 
 ---
 
 (source_file
-    (constant) (operator) (constant)
-    (constant) (operator) (constant) (operator) (constant) (operator) (constant)
-    (constant) (operator) (constant) (operator) (constant) (operator) (constant) (operator) (constant)
+    (label)
+    (label) (opcode (memnonic)) (semicolon_comment)
+    (opcode (memnonic)) (semicolon_comment)
+    (opcode (memnonic))
 )
