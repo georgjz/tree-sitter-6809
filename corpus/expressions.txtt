@@ -7,12 +7,12 @@ label:  abx     ; comment
         abx     ; comment
         abx
 
-label:  abx     $affe
+label:  abx     #$affe
         abx     $dead,S
         abx     @102,-X
-        abx     %10101,--Y
+        abx     #%10101,--Y
         abx     1234,U++
-        
+
 ---
 
 (source_file

@@ -16,7 +16,7 @@ module.exports = grammar({
         _line_break: $ => '\n',
 
         // Labels and symbols
-        label:  $ => seq($._identifier, ':'),
+        label:  $ => seq(optional(/[\@\?]/), $._identifier, ':'),
         symbol: $ => $._identifier,
         _identifier: $ => /[a-zA-Z\._][a-zA-Z0-9\._\$]*/,
 
@@ -37,6 +37,7 @@ module.exports = grammar({
             )
         ),
 
+        // TODO: add all memnonics, replace with regex
         memnonic: $ => 'abx',
 
         _operand: $ => choice(
@@ -45,12 +46,17 @@ module.exports = grammar({
             $.symbol
         ),
 
-        // numbers
-        constant: $ => choice(
-            $._decimal,
-            $._octal,
-            $._hexadecimal,
-            $._binary
+        // numbers, including immediate addressing
+        constant: $ => seq(
+            seq(
+                optional('#'),
+                choice(
+                    $._decimal,
+                    $._octal,
+                    $._hexadecimal,
+                    $._binary
+                )
+            )
         ),
         // number formats
         _decimal: $ => /[0-9]+/,
@@ -76,7 +82,6 @@ module.exports = grammar({
         _register_exp: $ => choice(
             // prefix
             seq(
-                // /(\+[\+]|\-[\-])/,
                 $.operator,
                 optional($.operator),
                 $.register
@@ -86,7 +91,6 @@ module.exports = grammar({
                 $.register,
                 $.operator,
                 optional($.operator)
-                // /(\+[\+]|\-[\-])/
             ),
             $.register
         ),
