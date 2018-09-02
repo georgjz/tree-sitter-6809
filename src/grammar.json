@@ -105,6 +105,27 @@
               "type": "BLANK"
             }
           ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": ","
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_register_exp"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         }
       ]
     },
@@ -166,19 +187,6 @@
       "type": "PATTERN",
       "value": "\\%[01]+"
     },
-    "_comment": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "semicolon_comment"
-        }
-      ]
-    },
-    "semicolon_comment": {
-      "type": "PATTERN",
-      "value": ";.*"
-    },
     "register": {
       "type": "CHOICE",
       "members": [
@@ -221,6 +229,91 @@
         {
           "type": "STRING",
           "value": "D"
+        }
+      ]
+    },
+    "_comment": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "semicolon_comment"
+        }
+      ]
+    },
+    "semicolon_comment": {
+      "type": "PATTERN",
+      "value": ";.*"
+    },
+    "_register_exp": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "operator"
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "operator"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "SYMBOL",
+              "name": "register"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "register"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "operator"
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "operator"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "register"
+        }
+      ]
+    },
+    "operator": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "+"
+        },
+        {
+          "type": "STRING",
+          "value": "-"
         }
       ]
     }

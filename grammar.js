@@ -20,14 +20,21 @@ module.exports = grammar({
         symbol: $ => $._identifier,
         _identifier: $ => /[a-zA-Z\._][a-zA-Z0-9\._\$]*/,
 
-        // instructions
+        // Instructions are either 6809 opcodes or assembler directives
         _instruction: $ => choice(
             $.opcode
         ),
 
         opcode: $ => seq(
             $.memnonic,
-            optional($._operand)
+            // first operand
+            optional($._operand),
+            // second operand
+            optional(
+                seq(
+                    ',', $._register_exp
+                )
+            )
         ),
 
         memnonic: $ => 'abx',
@@ -51,6 +58,12 @@ module.exports = grammar({
         _hexadecimal: $ => /\$[a-fA-Z0-9]+/,
         _binary: $ => /\%[01]+/,
 
+        // 6809 registers
+        register: $ => choice(
+            'A', 'B', 'X', 'Y', 'U',
+            'S', 'PC', 'CC', 'DP', 'D'
+        ),
+
         // comments
         // TODO: asterisk comments
         _comment: $ => choice(
@@ -59,10 +72,29 @@ module.exports = grammar({
 
         semicolon_comment: $ => /;.*/,
 
-        // 6809 registers
-        register: $ => choice(
-            'A', 'B', 'X', 'Y', 'U',
-            'S', 'PC', 'CC', 'DP', 'D'
+        // this are the pre- and suffix operator for registers
+        _register_exp: $ => choice(
+            // prefix
+            seq(
+                // /(\+[\+]|\-[\-])/,
+                $.operator,
+                optional($.operator),
+                $.register
+            ),
+            // suffix
+            seq(
+                $.register,
+                $.operator,
+                optional($.operator)
+                // /(\+[\+]|\-[\-])/
+            ),
+            $.register
+        ),
+
+        // arithmetic and logical operators
+        // TODO: add all operators
+        operator: $ => choice(
+            '+', '-'
         ),
 
         // expression
