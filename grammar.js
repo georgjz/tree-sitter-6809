@@ -13,6 +13,7 @@ module.exports = grammar({
             $._line_break
         ),
 
+        // line breaks terminates a line
         _line_break: $ => '\n',
 
         // Labels and symbols
@@ -22,50 +23,50 @@ module.exports = grammar({
 
         // Instructions are either 6809 opcodes or assembler directives
         _instruction: $ => choice(
-            $.opcode
+            $.opcode,
+            $.assembler_directive
         ),
 
         opcode: $ => seq(
-            $.memnonic,
-            // first operand
-            optional($._operand),
-            // second operand
-            optional(
-                seq(
-                    ',', $._register_exp
-                )
+            $.memnonic,                             // memnonic
+            optional($._operand),                   // first operand
+            optional(seq( ',', $._register_exp ))   // second operand
+        ),
+
+        assembler_directive: $ => choice(
+            $.pseudo_opcode,
+            seq($.symbol, $.pseudo_opcode),
+            seq(
+                $.pseudo_opcode,
+                $._expression,
+                repeat(seq(",", $._expression))
             )
         ),
 
         // TODO: add all memnonics, replace with regex
         memnonic: $ => 'abx',
+        pseudo_opcode: $ => 'equ',
 
         _operand: $ => choice(
-            // $.constant,
             $.register,
-            // $.symbol,
             seq(
                 optional($.imm_marker),
                 $._expression
             )
         ),
 
+        // mark expressions for immediate addressing
         imm_marker: $ => /\#/,
 
         // numbers, including immediate addressing
-        // TODO: fix immediate addressing with #
-        constant: $ => seq(
-            seq(
-                // optional('#'),
-                choice(
-                    $._decimal,
-                    $._octal,
-                    $._hexadecimal,
-                    $._binary
-                )
-            )
+        constant: $ => choice(
+            $._decimal,
+            $._octal,
+            $._hexadecimal,
+            $._binary
         ),
         // number formats
+        // TODO: add other formats
         _decimal: $ => /[0-9]+/,
         _octal: $ => /\@[0-7]+/,
         _hexadecimal: $ => /\$[a-fA-Z0-9]+/,
@@ -79,11 +80,9 @@ module.exports = grammar({
 
         // comments
         // TODO: asterisk comments
-        _comment: $ => choice(
-            $.semicolon_comment
-        ),
-
+        _comment: $ => choice($.semicolon_comment, $.asterisk_comment),
         semicolon_comment: $ => /;.*/,
+        asterisk_comment:  $ => /\*.*/,
 
         // this are the pre- and suffix operator for registers
         _register_exp: $ => choice(
@@ -124,31 +123,5 @@ module.exports = grammar({
             $.constant
         ),
 
-        // _factor: $ => choice(
-            // $.constant,
-            // seq(
-                // '(',
-                // $._expression,
-                // ')'
-            // )
-        // ),
-
-
-        // _identifier: $ => /[a-zA-Z\._][a-zA-Z0-9\._\$]*/,
-        // symbol: $ => /[a-zA-Z\._][a-zA-Z0-9\._\$]*/,
-
-        // _operator: $ => choice(
-            // $.pseudo_opcode,
-            // $.operator
-        // ),
-
-        // TODO: add all pseudo opcodes
-        // pseudo_opcode: $ => 'equ',
-
-        // operator: $ => choice(
-            // '+', '-', '*', '/'
-        // )
-
     } // rules
-
 })

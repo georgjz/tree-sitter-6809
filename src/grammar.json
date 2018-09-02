@@ -96,6 +96,10 @@
         {
           "type": "SYMBOL",
           "name": "opcode"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "assembler_directive"
         }
       ]
     },
@@ -141,9 +145,64 @@
         }
       ]
     },
+    "assembler_directive": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "pseudo_opcode"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "symbol"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "pseudo_opcode"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "pseudo_opcode"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_expression"
+            },
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": ","
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "_expression"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
     "memnonic": {
       "type": "STRING",
       "value": "abx"
+    },
+    "pseudo_opcode": {
+      "type": "STRING",
+      "value": "equ"
     },
     "_operand": {
       "type": "CHOICE",
@@ -180,33 +239,23 @@
       "value": "\\#"
     },
     "constant": {
-      "type": "SEQ",
+      "type": "CHOICE",
       "members": [
         {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "SYMBOL",
-                  "name": "_decimal"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_octal"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_hexadecimal"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_binary"
-                }
-              ]
-            }
-          ]
+          "type": "SYMBOL",
+          "name": "_decimal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_octal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_hexadecimal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_binary"
         }
       ]
     },
@@ -277,12 +326,20 @@
         {
           "type": "SYMBOL",
           "name": "semicolon_comment"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "asterisk_comment"
         }
       ]
     },
     "semicolon_comment": {
       "type": "PATTERN",
       "value": ";.*"
+    },
+    "asterisk_comment": {
+      "type": "PATTERN",
+      "value": "\\*.*"
     },
     "_register_exp": {
       "type": "CHOICE",

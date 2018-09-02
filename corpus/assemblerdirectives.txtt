@@ -1,0 +1,25 @@
+====
+Assembler Directives Tests
+====
+
+    equ
+    equ c
+
+subR equ
+equ subR
+
+equ $100, %1001, @1234567, subR
+equ $100, 5 + 7, @3 - %10, subR
+
+---
+
+(source_file
+    (assembler_directive (pseudo_opcode) )
+    (assembler_directive (pseudo_opcode) (symbol) )
+
+    (assembler_directive (symbol) (pseudo_opcode) )
+    (assembler_directive (pseudo_opcode) (symbol) )
+
+    (assembler_directive (pseudo_opcode) (constant) (constant) (constant) (symbol) )
+    (assembler_directive (pseudo_opcode) (constant) (constant) (operator) (constant) (constant) (operator) (constant) (symbol) )
+)
