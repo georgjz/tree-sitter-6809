@@ -1,0 +1,29 @@
+====
+Addressing Mode Tests
+====
+
+label:
+label:  abx     ; comment
+        abx     ; comment
+        abx
+
+label:  abx     #$affe
+        abx     $dead,S
+        abx     @102,-X
+        abx     #%10101,--Y
+        abx     1234,U++
+
+---
+
+(source_file
+    (label)
+    (label) (opcode (memnonic)) (semicolon_comment)
+    (opcode (memnonic)) (semicolon_comment)
+    (opcode (memnonic))
+
+    (label) (opcode (memnonic) (imm_marker) (constant))
+    (opcode (memnonic) (constant) (register))
+    (opcode (memnonic) (constant) (operator) (register))
+    (opcode (memnonic) (imm_marker) (constant) (operator) (operator) (register))
+    (opcode (memnonic) (constant) (register) (operator) (operator))
+)

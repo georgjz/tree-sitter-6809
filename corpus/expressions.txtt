@@ -1,29 +1,20 @@
 ====
-Expressions test
+Expressions Tests
 ====
 
 label:
-label:  abx     ; comment
-        abx     ; comment
-        abx
+    abx (3 + 4)
+    abx 3 - 4
+    abx $affe - (@123 + %10101)
+    abx #($0001 + $0001)
 
-label:  abx     #$affe
-        abx     $dead,S
-        abx     @102,-X
-        abx     #%10101,--Y
-        abx     1234,U++
 
 ---
 
 (source_file
     (label)
-    (label) (opcode (memnonic)) (semicolon_comment)
-    (opcode (memnonic)) (semicolon_comment)
-    (opcode (memnonic))
-
-    (label) (opcode (memnonic) (constant))
-    (opcode (memnonic) (constant) (register))
-    (opcode (memnonic) (constant) (operator) (register))
-    (opcode (memnonic) (constant) (operator) (operator) (register))
-    (opcode (memnonic) (constant) (register) (operator) (operator))
+    (opcode (memnonic) (constant) (operator) (constant))
+    (opcode (memnonic) (constant) (operator) (constant))
+    (opcode (memnonic) (constant) (operator) (constant) (operator) (constant))
+    (opcode (memnonic) (imm_marker) (constant) (operator) (constant))
 )

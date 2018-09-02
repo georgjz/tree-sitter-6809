@@ -41,15 +41,22 @@ module.exports = grammar({
         memnonic: $ => 'abx',
 
         _operand: $ => choice(
-            $.constant,
+            // $.constant,
             $.register,
-            $.symbol
+            // $.symbol,
+            seq(
+                optional($.imm_marker),
+                $._expression
+            )
         ),
 
+        imm_marker: $ => /\#/,
+
         // numbers, including immediate addressing
+        // TODO: fix immediate addressing with #
         constant: $ => seq(
             seq(
-                optional('#'),
+                // optional('#'),
                 choice(
                     $._decimal,
                     $._octal,
@@ -102,20 +109,20 @@ module.exports = grammar({
         ),
 
         // expression
-        // _expression: $ => choice(
-        //     seq(
-        //         $._expression,
-        //         $._operator,
-        //         $._term
-        //     ),
-        //     $._term
-        // ),
-        //
-        // _term: $ => choice(
-        //     seq( '(', $._expression, ')' ),
-        //     $.symbol,
-        //     $.constant
-        // ),
+        _expression: $ => choice(
+            seq(
+                $._expression,
+                $.operator,
+                $._term
+            ),
+            $._term
+        ),
+
+        _term: $ => choice(
+            seq( '(', $._expression, ')' ),
+            $.symbol,
+            $.constant
+        ),
 
         // _factor: $ => choice(
             // $.constant,

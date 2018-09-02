@@ -150,21 +150,8 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "constant"
-        },
-        {
-          "type": "SYMBOL",
           "name": "register"
         },
-        {
-          "type": "SYMBOL",
-          "name": "symbol"
-        }
-      ]
-    },
-    "constant": {
-      "type": "SEQ",
-      "members": [
         {
           "type": "SEQ",
           "members": [
@@ -172,14 +159,32 @@
               "type": "CHOICE",
               "members": [
                 {
-                  "type": "STRING",
-                  "value": "#"
+                  "type": "SYMBOL",
+                  "name": "imm_marker"
                 },
                 {
                   "type": "BLANK"
                 }
               ]
             },
+            {
+              "type": "SYMBOL",
+              "name": "_expression"
+            }
+          ]
+        }
+      ]
+    },
+    "imm_marker": {
+      "type": "PATTERN",
+      "value": "\\#"
+    },
+    "constant": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SEQ",
+          "members": [
             {
               "type": "CHOICE",
               "members": [
@@ -348,6 +353,62 @@
         {
           "type": "STRING",
           "value": "-"
+        }
+      ]
+    },
+    "_expression": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_expression"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "operator"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_term"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_term"
+        }
+      ]
+    },
+    "_term": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "("
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_expression"
+            },
+            {
+              "type": "STRING",
+              "value": ")"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "symbol"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "constant"
         }
       ]
     }
