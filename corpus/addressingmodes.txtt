@@ -12,6 +12,9 @@ label:  abx     #$affe
         abx     @102,-X
         abx     #%10101,--Y
         abx     1234,U++
+        abx     1234q,U++
+        abx     1234H,U++
+        abx     0x1ff4,U++
 
 ---
 
@@ -25,5 +28,8 @@ label:  abx     #$affe
     (opcode (memnonic) (constant) (register))
     (opcode (memnonic) (constant) (operator) (register))
     (opcode (memnonic) (imm_marker) (constant) (operator) (operator) (register))
+    (opcode (memnonic) (constant) (register) (operator) (operator))
+    (opcode (memnonic) (constant) (register) (operator) (operator))
+    (opcode (memnonic) (constant) (register) (operator) (operator))
     (opcode (memnonic) (constant) (register) (operator) (operator))
 )

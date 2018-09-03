@@ -67,10 +67,10 @@ module.exports = grammar({
         ),
         // number formats
         // TODO: add other formats
-        _decimal: $ => /[0-9]+/,
-        _octal: $ => /\@[0-7]+/,
-        _hexadecimal: $ => /\$[a-fA-Z0-9]+/,
-        _binary: $ => /\%[01]+/,
+        _decimal: $ => /\&?[0-9]+/,
+        _octal: $ => choice(/\@[0-7]+/, /[0-7]+[qQoO]/),
+        _hexadecimal: $ => choice(/(\$|0[xX])[a-fA-Z0-9]+/, /[a-fA-F0-9]+H/),
+        _binary: $ => choice(/\%[01]+/, /[01]+[bB]/),
 
         // 6809 registers
         register: $ => choice(

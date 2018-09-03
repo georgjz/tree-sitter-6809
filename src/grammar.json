@@ -257,19 +257,46 @@
     },
     "_decimal": {
       "type": "PATTERN",
-      "value": "[0-9]+"
+      "value": "\\&?[0-9]+"
     },
     "_octal": {
-      "type": "PATTERN",
-      "value": "\\@[0-7]+"
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "\\@[0-7]+"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[0-7]+[qQoO]"
+        }
+      ]
     },
     "_hexadecimal": {
-      "type": "PATTERN",
-      "value": "\\$[a-fA-Z0-9]+"
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "(\\$|0[xX])[a-fA-Z0-9]+"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[a-fA-F0-9]+H"
+        }
+      ]
     },
     "_binary": {
-      "type": "PATTERN",
-      "value": "\\%[01]+"
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "\\%[01]+"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[01]+[bB]"
+        }
+      ]
     },
     "register": {
       "type": "CHOICE",
