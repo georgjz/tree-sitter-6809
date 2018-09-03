@@ -1,0 +1,22 @@
+====
+Expressions Tests
+====
+
+label:
+    abx (3 + 4)
+    abx 3 - 4
+    abx $affe - (@123 + %10101)
+    abx #($0001 + $0001)
+    abx symbol,++S
+
+
+---
+
+(source_file
+    (label)
+    (opcode (memnonic) (constant) (operator) (constant))
+    (opcode (memnonic) (constant) (operator) (constant))
+    (opcode (memnonic) (constant) (operator) (constant) (operator) (constant))
+    (opcode (memnonic) (imm_marker) (constant) (operator) (constant))
+    (opcode (memnonic) (symbol) (operator) (operator) (register))
+)
