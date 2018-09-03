@@ -1,0 +1,106 @@
+===
+Source File Test
+===
+
+;-------------------------------------------------------------------------------
+;   Includes
+;-------------------------------------------------------------------------------
+    include "VectrexBIOS.inc"   ; symbols for BIOS routines
+    include "MemoryMap.inc"     ; symbols for RAM access
+
+DrawPTBoat import
+
+;-------------------------------------------------------------------------------
+;   Start of Cartridge ROM
+;-------------------------------------------------------------------------------
+    section CODE
+        org $0000
+        opt c                           ; trace cycle count
+        ; Header required by Vectrex
+        .ascii  "g GCE 2018"            ; Copyright mark
+        .byte   $80                     ; null terminator
+        .word   music1                  ; music from ROM
+        .byte   $f8,$50,$20,$dc         ; height, width, rel y, rel x (from 0, 0)
+        .ascii  "SUB TEST"              ; Game title
+        .byte   $80
+        .byte   $00                     ; end of header
+
+Main:
+        jsr     WaitRecal               ; vectrex BIOS recalibration
+        ldd     #$00
+        jsr     DrawPTBoat
+        ldd     #$00
+
+        bra     Main                    ; repeat forever
+
+;-------------------------------------------------------------------------------
+;   Data
+;-------------------------------------------------------------------------------
+SpriteScale     equ 25
+
+LineList:
+    .byte   $08                           ; number of vectors - 1
+    .byte   -21,5
+    .byte   -3,127
+    .byte   0,45
+    .byte   5,25
+    .byte   3,7
+    .byte   6,6
+    .byte   17,11
+    .byte   0,-105
+    .byte   -7,-127
+
+endsection
+
+---
+(source_file
+    (semicolon_comment)
+    (semicolon_comment)
+    (semicolon_comment)
+    (assembler_directive (pseudo_opcode) (string) ) (semicolon_comment)
+    (assembler_directive (pseudo_opcode) (string) ) (semicolon_comment)
+
+    (assembler_directive (symbol) (pseudo_opcode) )
+
+    (semicolon_comment)
+    (semicolon_comment)
+    (semicolon_comment)
+    (assembler_directive (pseudo_opcode) (symbol) )
+    (assembler_directive (pseudo_opcode) (constant) )
+    (assembler_directive (pseudo_opcode) (symbol) ) (semicolon_comment)
+    (semicolon_comment)
+    (assembler_directive (pseudo_opcode) (string) ) (semicolon_comment)
+    (assembler_directive (pseudo_opcode) (constant) ) (semicolon_comment)
+    (assembler_directive (pseudo_opcode) (symbol) ) (semicolon_comment)
+    (assembler_directive (pseudo_opcode) (constant) (constant) (constant) (constant) ) (semicolon_comment)
+    (assembler_directive (pseudo_opcode) (string) ) (semicolon_comment)
+    (assembler_directive (pseudo_opcode) (constant) )
+    (assembler_directive (pseudo_opcode) (constant) ) (semicolon_comment)
+
+    (label)
+    (opcode (memnonic) (symbol) ) (semicolon_comment)
+    (opcode (memnonic) (imm_marker) (constant) )
+    (opcode (memnonic) (symbol) )
+    (opcode (memnonic) (imm_marker) (constant) )
+
+    (opcode (memnonic) (symbol) ) (semicolon_comment)
+
+    (semicolon_comment)
+    (semicolon_comment)
+    (semicolon_comment)
+    (assembler_directive (symbol) (pseudo_opcode) (constant) )
+
+    (label)
+    (assembler_directive (pseudo_opcode) (constant) ) (semicolon_comment)
+    (assembler_directive (pseudo_opcode) (constant) (constant) )
+    (assembler_directive (pseudo_opcode) (constant) (constant) )
+    (assembler_directive (pseudo_opcode) (constant) (constant) )
+    (assembler_directive (pseudo_opcode) (constant) (constant) )
+    (assembler_directive (pseudo_opcode) (constant) (constant) )
+    (assembler_directive (pseudo_opcode) (constant) (constant) )
+    (assembler_directive (pseudo_opcode) (constant) (constant) )
+    (assembler_directive (pseudo_opcode) (constant) (constant) )
+    (assembler_directive (pseudo_opcode) (constant) (constant) )
+
+    (assembler_directive (pseudo_opcode) )
+)

@@ -13,6 +13,8 @@ equ $100, 5 + 7, @3 - %10, subR
 
 equ "data.inc"
 
+mumu equ $00
+
 ---
 
 (source_file
@@ -26,4 +28,6 @@ equ "data.inc"
     (assembler_directive (pseudo_opcode) (constant) (constant) (operator) (constant) (constant) (operator) (constant) (symbol) )
 
     (assembler_directive (pseudo_opcode) (string) )
+
+    (assembler_directive (symbol) (pseudo_opcode) (constant))
 )

@@ -162,6 +162,18 @@
             {
               "type": "SYMBOL",
               "name": "pseudo_opcode"
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_expression"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
             }
           ]
         },
@@ -562,18 +574,18 @@
     },
     "_decimal": {
       "type": "PATTERN",
-      "value": "\\&?[0-9]+"
+      "value": "\\-?\\&?[0-9]+"
     },
     "_octal": {
       "type": "CHOICE",
       "members": [
         {
           "type": "PATTERN",
-          "value": "\\@[0-7]+"
+          "value": "\\-?\\@[0-7]+"
         },
         {
           "type": "PATTERN",
-          "value": "[0-7]+[qQoO]"
+          "value": "\\-?[0-7]+[qQoO]"
         }
       ]
     },
@@ -582,11 +594,11 @@
       "members": [
         {
           "type": "PATTERN",
-          "value": "(\\$|0[xX])[a-fA-Z0-9]+"
+          "value": "(\\-?\\$|0[xX])[a-fA-Z0-9]+"
         },
         {
           "type": "PATTERN",
-          "value": "[a-fA-F0-9]+H"
+          "value": "\\-?[a-fA-F0-9]+H"
         }
       ]
     },

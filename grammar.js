@@ -35,7 +35,7 @@ module.exports = grammar({
 
         assembler_directive: $ => choice(
             $.pseudo_opcode,
-            seq($.symbol, $.pseudo_opcode),
+            seq($.symbol, $.pseudo_opcode, optional($._expression)),
             seq(
                 $.pseudo_opcode,
                 $._expression,
@@ -67,9 +67,9 @@ module.exports = grammar({
         ),
         // number formats
         // TODO: add other formats
-        _decimal: $ => /\&?[0-9]+/,
-        _octal: $ => choice(/\@[0-7]+/, /[0-7]+[qQoO]/),
-        _hexadecimal: $ => choice(/(\$|0[xX])[a-fA-Z0-9]+/, /[a-fA-F0-9]+H/),
+        _decimal: $ => /\-?\&?[0-9]+/,
+        _octal: $ => choice(/\-?\@[0-7]+/, /\-?[0-7]+[qQoO]/),
+        _hexadecimal: $ => choice(/(\-?\$|0[xX])[a-fA-Z0-9]+/, /\-?[a-fA-F0-9]+H/),
         _binary: $ => choice(/\%[01]+/, /[01]+[bB]/),
 
         // 6809 registers
