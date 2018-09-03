@@ -196,10 +196,6 @@
         }
       ]
     },
-    "memnonic": {
-      "type": "STRING",
-      "value": "abx"
-    },
     "pseudo_opcode": {
       "type": "STRING",
       "value": "equ"
@@ -476,6 +472,575 @@
     "string": {
       "type": "PATTERN",
       "value": "\\\".*\\\""
+    },
+    "memnonic": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "abx"
+        },
+        {
+          "type": "STRING",
+          "value": "adca"
+        },
+        {
+          "type": "STRING",
+          "value": "adcb"
+        },
+        {
+          "type": "STRING",
+          "value": "adda"
+        },
+        {
+          "type": "STRING",
+          "value": "addb"
+        },
+        {
+          "type": "STRING",
+          "value": "addd"
+        },
+        {
+          "type": "STRING",
+          "value": "anda"
+        },
+        {
+          "type": "STRING",
+          "value": "andb"
+        },
+        {
+          "type": "STRING",
+          "value": "andcc"
+        },
+        {
+          "type": "STRING",
+          "value": "asla"
+        },
+        {
+          "type": "STRING",
+          "value": "aslb"
+        },
+        {
+          "type": "STRING",
+          "value": "asl"
+        },
+        {
+          "type": "STRING",
+          "value": "asra"
+        },
+        {
+          "type": "STRING",
+          "value": "asrb"
+        },
+        {
+          "type": "STRING",
+          "value": "asr"
+        },
+        {
+          "type": "STRING",
+          "value": "bita"
+        },
+        {
+          "type": "STRING",
+          "value": "bitb"
+        },
+        {
+          "type": "STRING",
+          "value": "bra"
+        },
+        {
+          "type": "STRING",
+          "value": "bcc"
+        },
+        {
+          "type": "STRING",
+          "value": "bcs"
+        },
+        {
+          "type": "STRING",
+          "value": "beq"
+        },
+        {
+          "type": "STRING",
+          "value": "bge"
+        },
+        {
+          "type": "STRING",
+          "value": "bgt"
+        },
+        {
+          "type": "STRING",
+          "value": "bhi"
+        },
+        {
+          "type": "STRING",
+          "value": "bhs"
+        },
+        {
+          "type": "STRING",
+          "value": "ble"
+        },
+        {
+          "type": "STRING",
+          "value": "blo"
+        },
+        {
+          "type": "STRING",
+          "value": "bls"
+        },
+        {
+          "type": "STRING",
+          "value": "blt"
+        },
+        {
+          "type": "STRING",
+          "value": "bmi"
+        },
+        {
+          "type": "STRING",
+          "value": "bne"
+        },
+        {
+          "type": "STRING",
+          "value": "bpl"
+        },
+        {
+          "type": "STRING",
+          "value": "bra"
+        },
+        {
+          "type": "STRING",
+          "value": "brn"
+        },
+        {
+          "type": "STRING",
+          "value": "bsr"
+        },
+        {
+          "type": "STRING",
+          "value": "bvc"
+        },
+        {
+          "type": "STRING",
+          "value": "bvs"
+        },
+        {
+          "type": "STRING",
+          "value": "lbra"
+        },
+        {
+          "type": "STRING",
+          "value": "lbcc"
+        },
+        {
+          "type": "STRING",
+          "value": "lbcs"
+        },
+        {
+          "type": "STRING",
+          "value": "lbeq"
+        },
+        {
+          "type": "STRING",
+          "value": "lbge"
+        },
+        {
+          "type": "STRING",
+          "value": "lbgt"
+        },
+        {
+          "type": "STRING",
+          "value": "lbhi"
+        },
+        {
+          "type": "STRING",
+          "value": "lbhs"
+        },
+        {
+          "type": "STRING",
+          "value": "lble"
+        },
+        {
+          "type": "STRING",
+          "value": "lblo"
+        },
+        {
+          "type": "STRING",
+          "value": "lbls"
+        },
+        {
+          "type": "STRING",
+          "value": "lblt"
+        },
+        {
+          "type": "STRING",
+          "value": "lbmi"
+        },
+        {
+          "type": "STRING",
+          "value": "lbne"
+        },
+        {
+          "type": "STRING",
+          "value": "lbpl"
+        },
+        {
+          "type": "STRING",
+          "value": "lbra"
+        },
+        {
+          "type": "STRING",
+          "value": "lbrn"
+        },
+        {
+          "type": "STRING",
+          "value": "lbsr"
+        },
+        {
+          "type": "STRING",
+          "value": "lbvc"
+        },
+        {
+          "type": "STRING",
+          "value": "lbvs"
+        },
+        {
+          "type": "STRING",
+          "value": "clra"
+        },
+        {
+          "type": "STRING",
+          "value": "clrb"
+        },
+        {
+          "type": "STRING",
+          "value": "clr"
+        },
+        {
+          "type": "STRING",
+          "value": "cmpa"
+        },
+        {
+          "type": "STRING",
+          "value": "cmpb"
+        },
+        {
+          "type": "STRING",
+          "value": "cmpd"
+        },
+        {
+          "type": "STRING",
+          "value": "cmps"
+        },
+        {
+          "type": "STRING",
+          "value": "cmpu"
+        },
+        {
+          "type": "STRING",
+          "value": "cmpx"
+        },
+        {
+          "type": "STRING",
+          "value": "cmpy"
+        },
+        {
+          "type": "STRING",
+          "value": "coma"
+        },
+        {
+          "type": "STRING",
+          "value": "comb"
+        },
+        {
+          "type": "STRING",
+          "value": "com"
+        },
+        {
+          "type": "STRING",
+          "value": "cwai"
+        },
+        {
+          "type": "STRING",
+          "value": "daa"
+        },
+        {
+          "type": "STRING",
+          "value": "deca"
+        },
+        {
+          "type": "STRING",
+          "value": "decb"
+        },
+        {
+          "type": "STRING",
+          "value": "dec"
+        },
+        {
+          "type": "STRING",
+          "value": "eora"
+        },
+        {
+          "type": "STRING",
+          "value": "eorb"
+        },
+        {
+          "type": "STRING",
+          "value": "exg"
+        },
+        {
+          "type": "STRING",
+          "value": "inca"
+        },
+        {
+          "type": "STRING",
+          "value": "incb"
+        },
+        {
+          "type": "STRING",
+          "value": "inc"
+        },
+        {
+          "type": "STRING",
+          "value": "jmp"
+        },
+        {
+          "type": "STRING",
+          "value": "jsr"
+        },
+        {
+          "type": "STRING",
+          "value": "lda"
+        },
+        {
+          "type": "STRING",
+          "value": "ldb"
+        },
+        {
+          "type": "STRING",
+          "value": "ldd"
+        },
+        {
+          "type": "STRING",
+          "value": "lds"
+        },
+        {
+          "type": "STRING",
+          "value": "ldu"
+        },
+        {
+          "type": "STRING",
+          "value": "ldx"
+        },
+        {
+          "type": "STRING",
+          "value": "ldy"
+        },
+        {
+          "type": "STRING",
+          "value": "leas"
+        },
+        {
+          "type": "STRING",
+          "value": "leau"
+        },
+        {
+          "type": "STRING",
+          "value": "leax"
+        },
+        {
+          "type": "STRING",
+          "value": "leay"
+        },
+        {
+          "type": "STRING",
+          "value": "lsla"
+        },
+        {
+          "type": "STRING",
+          "value": "lslb"
+        },
+        {
+          "type": "STRING",
+          "value": "lsl"
+        },
+        {
+          "type": "STRING",
+          "value": "lsra"
+        },
+        {
+          "type": "STRING",
+          "value": "lsrb"
+        },
+        {
+          "type": "STRING",
+          "value": "lsr"
+        },
+        {
+          "type": "STRING",
+          "value": "mul"
+        },
+        {
+          "type": "STRING",
+          "value": "nega"
+        },
+        {
+          "type": "STRING",
+          "value": "negb"
+        },
+        {
+          "type": "STRING",
+          "value": "neg"
+        },
+        {
+          "type": "STRING",
+          "value": "nop"
+        },
+        {
+          "type": "STRING",
+          "value": "ora"
+        },
+        {
+          "type": "STRING",
+          "value": "orb"
+        },
+        {
+          "type": "STRING",
+          "value": "orcc"
+        },
+        {
+          "type": "STRING",
+          "value": "pshs"
+        },
+        {
+          "type": "STRING",
+          "value": "pshu"
+        },
+        {
+          "type": "STRING",
+          "value": "puls"
+        },
+        {
+          "type": "STRING",
+          "value": "pulu"
+        },
+        {
+          "type": "STRING",
+          "value": "rola"
+        },
+        {
+          "type": "STRING",
+          "value": "rolb"
+        },
+        {
+          "type": "STRING",
+          "value": "rol"
+        },
+        {
+          "type": "STRING",
+          "value": "rora"
+        },
+        {
+          "type": "STRING",
+          "value": "rorb"
+        },
+        {
+          "type": "STRING",
+          "value": "ror"
+        },
+        {
+          "type": "STRING",
+          "value": "rti"
+        },
+        {
+          "type": "STRING",
+          "value": "rts"
+        },
+        {
+          "type": "STRING",
+          "value": "sbca"
+        },
+        {
+          "type": "STRING",
+          "value": "sbcb"
+        },
+        {
+          "type": "STRING",
+          "value": "sex"
+        },
+        {
+          "type": "STRING",
+          "value": "sta"
+        },
+        {
+          "type": "STRING",
+          "value": "stb"
+        },
+        {
+          "type": "STRING",
+          "value": "std"
+        },
+        {
+          "type": "STRING",
+          "value": "sts"
+        },
+        {
+          "type": "STRING",
+          "value": "stu"
+        },
+        {
+          "type": "STRING",
+          "value": "stx"
+        },
+        {
+          "type": "STRING",
+          "value": "sty"
+        },
+        {
+          "type": "STRING",
+          "value": "suba"
+        },
+        {
+          "type": "STRING",
+          "value": "subb"
+        },
+        {
+          "type": "STRING",
+          "value": "subd"
+        },
+        {
+          "type": "STRING",
+          "value": "swi"
+        },
+        {
+          "type": "STRING",
+          "value": "swi2"
+        },
+        {
+          "type": "STRING",
+          "value": "swi3"
+        },
+        {
+          "type": "STRING",
+          "value": "sync"
+        },
+        {
+          "type": "STRING",
+          "value": "tfr"
+        },
+        {
+          "type": "STRING",
+          "value": "tsta"
+        },
+        {
+          "type": "STRING",
+          "value": "tstb"
+        },
+        {
+          "type": "STRING",
+          "value": "tst"
+        }
+      ]
     }
   },
   "extras": [

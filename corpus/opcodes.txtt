@@ -1,0 +1,91 @@
+===
+Opcode Tests
+===
+
+neg
+com
+lsr
+ror
+asr
+lsl
+asl
+rol
+dec
+inc
+tst
+jmp
+clr
+nop
+sync
+lbra
+lbsr
+daa
+orcc
+andcc
+sex
+exg
+tfr
+bra
+brn
+bhi
+bls
+bhs
+bcc
+blo
+bcs
+bne
+beq
+bvc
+bvs
+bpl
+bmi
+bge
+blt
+bgt
+ble
+
+---
+
+(source_file
+    (opcode (memnonic))
+    (opcode (memnonic))
+    (opcode (memnonic))
+    (opcode (memnonic))
+    (opcode (memnonic))
+    (opcode (memnonic))
+    (opcode (memnonic))
+    (opcode (memnonic))
+    (opcode (memnonic))
+    (opcode (memnonic))
+    (opcode (memnonic))
+    (opcode (memnonic))
+    (opcode (memnonic))
+    (opcode (memnonic))
+    (opcode (memnonic))
+    (opcode (memnonic))
+    (opcode (memnonic))
+    (opcode (memnonic))
+    (opcode (memnonic))
+    (opcode (memnonic))
+    (opcode (memnonic))
+    (opcode (memnonic))
+    (opcode (memnonic))
+    (opcode (memnonic))
+    (opcode (memnonic))
+    (opcode (memnonic))
+    (opcode (memnonic))
+    (opcode (memnonic))
+    (opcode (memnonic))
+    (opcode (memnonic))
+    (opcode (memnonic))
+    (opcode (memnonic))
+    (opcode (memnonic))
+    (opcode (memnonic))
+    (opcode (memnonic))
+    (opcode (memnonic))
+    (opcode (memnonic))
+    (opcode (memnonic))
+    (opcode (memnonic))
+    (opcode (memnonic))
+    (opcode (memnonic))
+)

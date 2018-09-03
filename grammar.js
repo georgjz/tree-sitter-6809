@@ -44,7 +44,7 @@ module.exports = grammar({
         ),
 
         // TODO: add all memnonics, replace with regex
-        memnonic: $ => 'abx',
+        // memnonic: $ => 'abx',
         pseudo_opcode: $ => 'equ',
 
         _operand: $ => choice(
@@ -125,6 +125,192 @@ module.exports = grammar({
         ),
 
         string: $ => /\".*\"/,
+
+        // All 6809 memnonics
+        // WARNING: highly ineffective, but tree-sitter cli doesn't seem to be
+        // able to process regex correctly yet
+        memnonic: $ => choice(
+            'abx',
+            // add with carry
+            'adca',
+            'adcb',
+            // add
+            'adda',
+            'addb',
+            'addd',
+            // logical AND
+            'anda',
+            'andb',
+            'andcc',
+            // arithmetic shift left
+            'asla',
+            'aslb',
+            'asl',
+            'asra',
+            'asrb',
+            'asr',
+            // bit test
+            'bita',
+            'bitb',
+            // branch
+            'bra',
+            'bcc',
+            'bcs',
+            'beq',
+            'bge',
+            'bgt',
+            'bhi',
+            'bhs',
+            'ble',
+            'blo',
+            'bls',
+            'blt',
+            'bmi',
+            'bne',
+            'bpl',
+            'bra',
+            'brn',
+            'bsr',
+            'bvc',
+            'bvs',
+            // long branch
+            'lbra',
+            'lbcc',
+            'lbcs',
+            'lbeq',
+            'lbge',
+            'lbgt',
+            'lbhi',
+            'lbhs',
+            'lble',
+            'lblo',
+            'lbls',
+            'lblt',
+            'lbmi',
+            'lbne',
+            'lbpl',
+            'lbra',
+            'lbrn',
+            'lbsr',
+            'lbvc',
+            'lbvs',
+            // clear register
+            'clra',
+            'clrb',
+            'clr',
+            // compare register
+            'cmpa',
+            'cmpb',
+            'cmpd',
+            'cmps',
+            'cmpu',
+            'cmpx',
+            'cmpy',
+            // complement register
+            'coma',
+            'comb',
+            'com',
+            // wait for interrupt
+            'cwai',
+            // decimal ajust A, BCD
+            'daa',
+            // decrement register
+            'deca',
+            'decb',
+            'dec',
+            // logical XOR
+            'eora',
+            'eorb',
+            // exchange registers
+            'exg',
+            // increment register
+            'inca',
+            'incb',
+            'inc',
+            // jump opcodes
+            'jmp',
+            'jsr',
+            // load register
+            'lda',
+            'ldb',
+            'ldd',
+            'lds',
+            'ldu',
+            'ldx',
+            'ldy',
+            // load effective address
+            'leas',
+            'leau',
+            'leax',
+            'leay',
+            // logical shift left
+            'lsla',
+            'lslb',
+            'lsl',
+            // logical shift right
+            'lsra',
+            'lsrb',
+            'lsr',
+            // multiply A * B
+            'mul',
+            // negate register
+            'nega',
+            'negb',
+            'neg',
+            // not an operation
+            'nop',
+            // logical OR
+            'ora',
+            'orb',
+            'orcc',
+            // push to stack
+            'pshs',
+            'pshu',
+            // pull from stack
+            'puls',
+            'pulu',
+            // rotate left register
+            'rola',
+            'rolb',
+            'rol',
+            // rotate right register
+            'rora',
+            'rorb',
+            'ror',
+            // return from interrupt
+            'rti',
+            // return from subroutine
+            'rts',
+            // subtract with carry
+            'sbca',
+            'sbcb',
+            // sign exchange A-B
+            'sex',
+            // store register
+            'sta',
+            'stb',
+            'std',
+            'sts',
+            'stu',
+            'stx',
+            'sty',
+            // subtract
+            'suba',
+            'subb',
+            'subd',
+            // software interrupts
+            'swi',
+            'swi2',
+            'swi3',
+            // synchronize to interrupt
+            'sync',
+            // transfer register to register
+            'tfr',
+            // test register
+            'tsta',
+            'tstb',
+            'tst',
+        ), // memnonics
 
     } // rules
 })
