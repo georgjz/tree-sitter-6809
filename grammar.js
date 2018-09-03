@@ -312,5 +312,50 @@ module.exports = grammar({
             'tst',
         ), // memnonics
 
+        pseudo_opcode: $ => choice(
+            // data directives
+            'fcb', '.db', '.byte',
+            'fdb', '.dw', '.word',
+            'fqb', '.quad', '.4byte',
+            // strings
+            'fcc', '.ascii', '.str',
+            'fcn', '.asciz', '.strz',
+            'fcs', '.ascis', '.strs',
+            // fill bytes
+            'zmb', 'zmd', 'zmq',
+            'rmb', '.blkb', '.ds', '.rs',
+            'rmd', 'rmq', 'fill',
+            // files
+            'includebin', 'include',
+            'import', 'export',
+            'extern', 'external', '.globl',
+            'extdep',
+            // address definition
+            'org', 'reorg', 'equ', 'set',
+            'setdp', 'align',
+            // conditional
+            'ifeq', 'ifne', 'if',
+            'ifgt', 'ifge', 'iflt', 'ifle',
+            'ifdef', 'ifpragma', 'ifndef', 'else',
+            'endc',
+            // OS targets
+            'os9', 'mod', 'emod',
+            // misc
+            'end', 'error', 'warning', '.module',
+            // macros
+            'macro', 'endm',
+            // struct
+            'struct', 'endstruct', 'ends',
+            // section
+            'section', 'sect', '.area',
+            'endsection', 'endsect',
+            // pragma
+            'pragma', '*pragma',
+            '*pragmapush', '*pragmapop',
+            // cycle count
+            'opt'
+        ),
+
+        // TODO: add missing assembler constants/commands, pragmas, etc.
     } // rules
 })
