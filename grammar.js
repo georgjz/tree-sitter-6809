@@ -132,184 +132,89 @@ module.exports = grammar({
         memnonic: $ => choice(
             'abx',
             // add with carry
-            'adca',
-            'adcb',
+            'adca', 'adcb',
             // add
-            'adda',
-            'addb',
-            'addd',
+            'adda', 'addb', 'addd',
             // logical AND
-            'anda',
-            'andb',
-            'andcc',
+            'anda', 'andb', 'andcc',
             // arithmetic shift left
-            'asla',
-            'aslb',
-            'asl',
-            'asra',
-            'asrb',
-            'asr',
+            'asla', 'aslb', 'asl',
+            'asra', 'asrb', 'asr',
             // bit test
-            'bita',
-            'bitb',
+            'bita', 'bitb',
             // branch
-            'bra',
-            'bcc',
-            'bcs',
-            'beq',
-            'bge',
-            'bgt',
-            'bhi',
-            'bhs',
-            'ble',
-            'blo',
-            'bls',
-            'blt',
-            'bmi',
-            'bne',
-            'bpl',
-            'bra',
-            'brn',
-            'bsr',
-            'bvc',
-            'bvs',
+            'bra', 'bcc', 'bcs', 'beq', 'bge', 'bgt', 'bhi',
+            'bhs', 'ble', 'blo', 'bls', 'blt', 'bmi', 'bne',
+            'bpl', 'bra', 'brn', 'bsr', 'bvc', 'bvs',
             // long branch
-            'lbra',
-            'lbcc',
-            'lbcs',
-            'lbeq',
-            'lbge',
-            'lbgt',
-            'lbhi',
-            'lbhs',
-            'lble',
-            'lblo',
-            'lbls',
-            'lblt',
-            'lbmi',
-            'lbne',
-            'lbpl',
-            'lbra',
-            'lbrn',
-            'lbsr',
-            'lbvc',
-            'lbvs',
+            'lbra', 'lbcc', 'lbcs', 'lbeq', 'lbge', 'lbgt',
+            'lbhi', 'lbhs', 'lble', 'lblo', 'lbls', 'lblt',
+            'lbmi', 'lbne', 'lbpl', 'lbra', 'lbrn', 'lbsr',
+            'lbvc', 'lbvs',
             // clear register
-            'clra',
-            'clrb',
-            'clr',
+            'clra', 'clrb', 'clr',
             // compare register
-            'cmpa',
-            'cmpb',
-            'cmpd',
-            'cmps',
-            'cmpu',
-            'cmpx',
-            'cmpy',
+            'cmpa', 'cmpb', 'cmpd', 'cmps', 'cmpu', 'cmpx', 'cmpy',
             // complement register
-            'coma',
-            'comb',
-            'com',
+            'coma', 'comb', 'com',
             // wait for interrupt
             'cwai',
             // decimal ajust A, BCD
             'daa',
             // decrement register
-            'deca',
-            'decb',
-            'dec',
+            'deca', 'decb', 'dec',
             // logical XOR
-            'eora',
-            'eorb',
+            'eora', 'eorb',
             // exchange registers
             'exg',
             // increment register
-            'inca',
-            'incb',
-            'inc',
+            'inca', 'incb', 'inc',
             // jump opcodes
-            'jmp',
-            'jsr',
+            'jmp', 'jsr',
             // load register
-            'lda',
-            'ldb',
-            'ldd',
-            'lds',
-            'ldu',
-            'ldx',
-            'ldy',
+            'lda', 'ldb', 'ldd', 'lds', 'ldu', 'ldx', 'ldy',
             // load effective address
-            'leas',
-            'leau',
-            'leax',
-            'leay',
+            'leas', 'leau', 'leax', 'leay',
             // logical shift left
-            'lsla',
-            'lslb',
-            'lsl',
+            'lsla', 'lslb', 'lsl',
             // logical shift right
-            'lsra',
-            'lsrb',
-            'lsr',
+            'lsra', 'lsrb', 'lsr',
             // multiply A * B
             'mul',
             // negate register
-            'nega',
-            'negb',
-            'neg',
+            'nega', 'negb', 'neg',
             // not an operation
             'nop',
             // logical OR
-            'ora',
-            'orb',
-            'orcc',
+            'ora', 'orb', 'orcc',
             // push to stack
-            'pshs',
-            'pshu',
+            'pshs', 'pshu',
             // pull from stack
-            'puls',
-            'pulu',
+            'puls', 'pulu',
             // rotate left register
-            'rola',
-            'rolb',
-            'rol',
+            'rola', 'rolb', 'rol',
             // rotate right register
-            'rora',
-            'rorb',
-            'ror',
+            'rora', 'rorb', 'ror',
             // return from interrupt
             'rti',
             // return from subroutine
             'rts',
             // subtract with carry
-            'sbca',
-            'sbcb',
+            'sbca', 'sbcb',
             // sign exchange A-B
             'sex',
             // store register
-            'sta',
-            'stb',
-            'std',
-            'sts',
-            'stu',
-            'stx',
-            'sty',
+            'sta', 'stb', 'std', 'sts', 'stu', 'stx', 'sty',
             // subtract
-            'suba',
-            'subb',
-            'subd',
+            'suba', 'subb', 'subd',
             // software interrupts
-            'swi',
-            'swi2',
-            'swi3',
+            'swi', 'swi2', 'swi3',
             // synchronize to interrupt
             'sync',
             // transfer register to register
             'tfr',
             // test register
-            'tsta',
-            'tstb',
-            'tst',
+            'tsta', 'tstb', 'tst',
         ), // memnonics
 
         pseudo_opcode: $ => choice(
@@ -354,7 +259,7 @@ module.exports = grammar({
             '*pragmapush', '*pragmapop',
             // cycle count
             'opt'
-        ),
+        ), // pseudo_opcode
 
         // TODO: add missing assembler constants/commands, pragmas, etc.
     } // rules
