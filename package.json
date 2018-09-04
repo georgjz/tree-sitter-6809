@@ -10,7 +10,7 @@
         "url": "https://github.com/georgjz/tree-sitter-6809.git/issues"
     },
     "devDependencies": {
-        "tree-sitter-cli": "^0.13.8"
+        "tree-sitter-cli": "latest"
     },
     "scripts": {
         "build": "node_modules/.bin/tree-sitter generate && node-gyp build"

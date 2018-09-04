@@ -7,7 +7,7 @@ module.exports = grammar({
 
         // a line has up to three fields:
         _line: $ =>seq(
-            optional($.label),
+            optional(seq($.label, ':')),
             optional($._instruction),
             optional($._comment),
             $._line_break
@@ -17,7 +17,8 @@ module.exports = grammar({
         _line_break: $ => '\n',
 
         // Labels and symbols
-        label:  $ => seq(optional(/[\@\?]/), $._identifier, ':'),
+        // TODO: exclude colon
+        label:  $ => seq(optional(/[\@\?]/), $._identifier),
         symbol: $ => $._identifier,
         _identifier: $ => /[a-zA-Z\._][a-zA-Z0-9\._\$]*/,
 
@@ -45,7 +46,7 @@ module.exports = grammar({
 
         // TODO: add all memnonics, replace with regex
         // memnonic: $ => 'abx',
-        pseudo_opcode: $ => 'equ',
+        // pseudo_opcode: $ => 'equ',
 
         _operand: $ => choice(
             $.register,

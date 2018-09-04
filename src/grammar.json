@@ -15,8 +15,17 @@
           "type": "CHOICE",
           "members": [
             {
-              "type": "SYMBOL",
-              "name": "label"
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "label"
+                },
+                {
+                  "type": "STRING",
+                  "value": ":"
+                }
+              ]
             },
             {
               "type": "BLANK"
@@ -75,10 +84,6 @@
         {
           "type": "SYMBOL",
           "name": "_identifier"
-        },
-        {
-          "type": "STRING",
-          "value": ":"
         }
       ]
     },
@@ -205,315 +210,6 @@
               }
             }
           ]
-        }
-      ]
-    },
-    "pseudo_opcode": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "fcb"
-        },
-        {
-          "type": "STRING",
-          "value": ".db"
-        },
-        {
-          "type": "STRING",
-          "value": ".byte"
-        },
-        {
-          "type": "STRING",
-          "value": "fdb"
-        },
-        {
-          "type": "STRING",
-          "value": ".dw"
-        },
-        {
-          "type": "STRING",
-          "value": ".word"
-        },
-        {
-          "type": "STRING",
-          "value": "fqb"
-        },
-        {
-          "type": "STRING",
-          "value": ".quad"
-        },
-        {
-          "type": "STRING",
-          "value": ".4byte"
-        },
-        {
-          "type": "STRING",
-          "value": "fcc"
-        },
-        {
-          "type": "STRING",
-          "value": ".ascii"
-        },
-        {
-          "type": "STRING",
-          "value": ".str"
-        },
-        {
-          "type": "STRING",
-          "value": "fcn"
-        },
-        {
-          "type": "STRING",
-          "value": ".asciz"
-        },
-        {
-          "type": "STRING",
-          "value": ".strz"
-        },
-        {
-          "type": "STRING",
-          "value": "fcs"
-        },
-        {
-          "type": "STRING",
-          "value": ".ascis"
-        },
-        {
-          "type": "STRING",
-          "value": ".strs"
-        },
-        {
-          "type": "STRING",
-          "value": "zmb"
-        },
-        {
-          "type": "STRING",
-          "value": "zmd"
-        },
-        {
-          "type": "STRING",
-          "value": "zmq"
-        },
-        {
-          "type": "STRING",
-          "value": "rmb"
-        },
-        {
-          "type": "STRING",
-          "value": ".blkb"
-        },
-        {
-          "type": "STRING",
-          "value": ".ds"
-        },
-        {
-          "type": "STRING",
-          "value": ".rs"
-        },
-        {
-          "type": "STRING",
-          "value": "rmd"
-        },
-        {
-          "type": "STRING",
-          "value": "rmq"
-        },
-        {
-          "type": "STRING",
-          "value": "fill"
-        },
-        {
-          "type": "STRING",
-          "value": "includebin"
-        },
-        {
-          "type": "STRING",
-          "value": "include"
-        },
-        {
-          "type": "STRING",
-          "value": "import"
-        },
-        {
-          "type": "STRING",
-          "value": "export"
-        },
-        {
-          "type": "STRING",
-          "value": "extern"
-        },
-        {
-          "type": "STRING",
-          "value": "external"
-        },
-        {
-          "type": "STRING",
-          "value": ".globl"
-        },
-        {
-          "type": "STRING",
-          "value": "extdep"
-        },
-        {
-          "type": "STRING",
-          "value": "org"
-        },
-        {
-          "type": "STRING",
-          "value": "reorg"
-        },
-        {
-          "type": "STRING",
-          "value": "equ"
-        },
-        {
-          "type": "STRING",
-          "value": "set"
-        },
-        {
-          "type": "STRING",
-          "value": "setdp"
-        },
-        {
-          "type": "STRING",
-          "value": "align"
-        },
-        {
-          "type": "STRING",
-          "value": "ifeq"
-        },
-        {
-          "type": "STRING",
-          "value": "ifne"
-        },
-        {
-          "type": "STRING",
-          "value": "if"
-        },
-        {
-          "type": "STRING",
-          "value": "ifgt"
-        },
-        {
-          "type": "STRING",
-          "value": "ifge"
-        },
-        {
-          "type": "STRING",
-          "value": "iflt"
-        },
-        {
-          "type": "STRING",
-          "value": "ifle"
-        },
-        {
-          "type": "STRING",
-          "value": "ifdef"
-        },
-        {
-          "type": "STRING",
-          "value": "ifpragma"
-        },
-        {
-          "type": "STRING",
-          "value": "ifndef"
-        },
-        {
-          "type": "STRING",
-          "value": "else"
-        },
-        {
-          "type": "STRING",
-          "value": "endc"
-        },
-        {
-          "type": "STRING",
-          "value": "os9"
-        },
-        {
-          "type": "STRING",
-          "value": "mod"
-        },
-        {
-          "type": "STRING",
-          "value": "emod"
-        },
-        {
-          "type": "STRING",
-          "value": "end"
-        },
-        {
-          "type": "STRING",
-          "value": "error"
-        },
-        {
-          "type": "STRING",
-          "value": "warning"
-        },
-        {
-          "type": "STRING",
-          "value": ".module"
-        },
-        {
-          "type": "STRING",
-          "value": "macro"
-        },
-        {
-          "type": "STRING",
-          "value": "endm"
-        },
-        {
-          "type": "STRING",
-          "value": "struct"
-        },
-        {
-          "type": "STRING",
-          "value": "endstruct"
-        },
-        {
-          "type": "STRING",
-          "value": "ends"
-        },
-        {
-          "type": "STRING",
-          "value": "section"
-        },
-        {
-          "type": "STRING",
-          "value": "sect"
-        },
-        {
-          "type": "STRING",
-          "value": ".area"
-        },
-        {
-          "type": "STRING",
-          "value": "endsection"
-        },
-        {
-          "type": "STRING",
-          "value": "endsect"
-        },
-        {
-          "type": "STRING",
-          "value": "pragma"
-        },
-        {
-          "type": "STRING",
-          "value": "*pragma"
-        },
-        {
-          "type": "STRING",
-          "value": "*pragmapush"
-        },
-        {
-          "type": "STRING",
-          "value": "*pragmapop"
-        },
-        {
-          "type": "STRING",
-          "value": "opt"
         }
       ]
     },
@@ -1383,6 +1079,315 @@
         {
           "type": "STRING",
           "value": "tst"
+        }
+      ]
+    },
+    "pseudo_opcode": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "fcb"
+        },
+        {
+          "type": "STRING",
+          "value": ".db"
+        },
+        {
+          "type": "STRING",
+          "value": ".byte"
+        },
+        {
+          "type": "STRING",
+          "value": "fdb"
+        },
+        {
+          "type": "STRING",
+          "value": ".dw"
+        },
+        {
+          "type": "STRING",
+          "value": ".word"
+        },
+        {
+          "type": "STRING",
+          "value": "fqb"
+        },
+        {
+          "type": "STRING",
+          "value": ".quad"
+        },
+        {
+          "type": "STRING",
+          "value": ".4byte"
+        },
+        {
+          "type": "STRING",
+          "value": "fcc"
+        },
+        {
+          "type": "STRING",
+          "value": ".ascii"
+        },
+        {
+          "type": "STRING",
+          "value": ".str"
+        },
+        {
+          "type": "STRING",
+          "value": "fcn"
+        },
+        {
+          "type": "STRING",
+          "value": ".asciz"
+        },
+        {
+          "type": "STRING",
+          "value": ".strz"
+        },
+        {
+          "type": "STRING",
+          "value": "fcs"
+        },
+        {
+          "type": "STRING",
+          "value": ".ascis"
+        },
+        {
+          "type": "STRING",
+          "value": ".strs"
+        },
+        {
+          "type": "STRING",
+          "value": "zmb"
+        },
+        {
+          "type": "STRING",
+          "value": "zmd"
+        },
+        {
+          "type": "STRING",
+          "value": "zmq"
+        },
+        {
+          "type": "STRING",
+          "value": "rmb"
+        },
+        {
+          "type": "STRING",
+          "value": ".blkb"
+        },
+        {
+          "type": "STRING",
+          "value": ".ds"
+        },
+        {
+          "type": "STRING",
+          "value": ".rs"
+        },
+        {
+          "type": "STRING",
+          "value": "rmd"
+        },
+        {
+          "type": "STRING",
+          "value": "rmq"
+        },
+        {
+          "type": "STRING",
+          "value": "fill"
+        },
+        {
+          "type": "STRING",
+          "value": "includebin"
+        },
+        {
+          "type": "STRING",
+          "value": "include"
+        },
+        {
+          "type": "STRING",
+          "value": "import"
+        },
+        {
+          "type": "STRING",
+          "value": "export"
+        },
+        {
+          "type": "STRING",
+          "value": "extern"
+        },
+        {
+          "type": "STRING",
+          "value": "external"
+        },
+        {
+          "type": "STRING",
+          "value": ".globl"
+        },
+        {
+          "type": "STRING",
+          "value": "extdep"
+        },
+        {
+          "type": "STRING",
+          "value": "org"
+        },
+        {
+          "type": "STRING",
+          "value": "reorg"
+        },
+        {
+          "type": "STRING",
+          "value": "equ"
+        },
+        {
+          "type": "STRING",
+          "value": "set"
+        },
+        {
+          "type": "STRING",
+          "value": "setdp"
+        },
+        {
+          "type": "STRING",
+          "value": "align"
+        },
+        {
+          "type": "STRING",
+          "value": "ifeq"
+        },
+        {
+          "type": "STRING",
+          "value": "ifne"
+        },
+        {
+          "type": "STRING",
+          "value": "if"
+        },
+        {
+          "type": "STRING",
+          "value": "ifgt"
+        },
+        {
+          "type": "STRING",
+          "value": "ifge"
+        },
+        {
+          "type": "STRING",
+          "value": "iflt"
+        },
+        {
+          "type": "STRING",
+          "value": "ifle"
+        },
+        {
+          "type": "STRING",
+          "value": "ifdef"
+        },
+        {
+          "type": "STRING",
+          "value": "ifpragma"
+        },
+        {
+          "type": "STRING",
+          "value": "ifndef"
+        },
+        {
+          "type": "STRING",
+          "value": "else"
+        },
+        {
+          "type": "STRING",
+          "value": "endc"
+        },
+        {
+          "type": "STRING",
+          "value": "os9"
+        },
+        {
+          "type": "STRING",
+          "value": "mod"
+        },
+        {
+          "type": "STRING",
+          "value": "emod"
+        },
+        {
+          "type": "STRING",
+          "value": "end"
+        },
+        {
+          "type": "STRING",
+          "value": "error"
+        },
+        {
+          "type": "STRING",
+          "value": "warning"
+        },
+        {
+          "type": "STRING",
+          "value": ".module"
+        },
+        {
+          "type": "STRING",
+          "value": "macro"
+        },
+        {
+          "type": "STRING",
+          "value": "endm"
+        },
+        {
+          "type": "STRING",
+          "value": "struct"
+        },
+        {
+          "type": "STRING",
+          "value": "endstruct"
+        },
+        {
+          "type": "STRING",
+          "value": "ends"
+        },
+        {
+          "type": "STRING",
+          "value": "section"
+        },
+        {
+          "type": "STRING",
+          "value": "sect"
+        },
+        {
+          "type": "STRING",
+          "value": ".area"
+        },
+        {
+          "type": "STRING",
+          "value": "endsection"
+        },
+        {
+          "type": "STRING",
+          "value": "endsect"
+        },
+        {
+          "type": "STRING",
+          "value": "pragma"
+        },
+        {
+          "type": "STRING",
+          "value": "*pragma"
+        },
+        {
+          "type": "STRING",
+          "value": "*pragmapush"
+        },
+        {
+          "type": "STRING",
+          "value": "*pragmapop"
+        },
+        {
+          "type": "STRING",
+          "value": "opt"
         }
       ]
     }
