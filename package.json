@@ -14,5 +14,8 @@
     },
     "scripts": {
         "build": "node_modules/.bin/tree-sitter generate && node-gyp build"
+    },
+    "dependencies": {
+        "nan": "^2.11.0"
     }
 }
