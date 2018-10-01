@@ -1,6 +1,6 @@
 {
     "name": "tree-sitter-6809",
-    "version": "0.1.3",
+    "version": "0.1.4",
     "description": "A tree-sitter grammar for 6809 assembly",
     "main": "index.js",
     "author": "Georg Ziegler",
